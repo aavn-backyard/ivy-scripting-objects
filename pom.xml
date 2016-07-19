@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.axonivy.ivy.toolkits</groupId>
+	<artifactId>ivy-scripting-objects</artifactId>
+	<version>0.0.2.0</version>
+	<packaging>jar</packaging>
+	
+	<description>
+		This project aims to provide core utility classes which ease the developers in developing
+		with Ivy Scripting Objects.
+	</description>
+
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+
+		<version.powermockito>1.6.2</version.powermockito>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>${version.powermockito}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>${version.powermockito}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>ch.ivyteam.ivy</groupId>
+				<artifactId>addivyjars-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>add-ivy-jars</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	
+	
+	<scm>
+		<connection>scm:svn://https://192.168.110.51/svn/service/customers/Swisscom/LUZ/trunk/ivy/ivy-scripting-objects/</connection>
+		<developerConnection>scm:svn://https://192.168.110.51/svn/service/customers/Swisscom/LUZ/trunk/ivy/ivy-scripting-objects/</developerConnection>	
+	</scm>
+	
+	<distributionManagement>
+		<repository>
+			<id>soreco_central</id>
+			<url>http://192.168.48.10/artifactory/labs-release-local</url>
+		</repository>
+		<snapshotRepository>
+			<id>soreco_snapshots</id>
+			<url>http://192.168.48.10/artifactory/labs-snapshot-local</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<profiles>
+		<profile>
+			<id>vn</id>
+			<distributionManagement>
+				<repository>
+					<id>soreco_central</id>
+					<url>http://192.168.73.15:8081/artifactory/labs-release-local</url>
+				</repository>
+				<snapshotRepository>
+					<id>soreco_snapshots_vn</id>
+					<url>http://192.168.73.15:8081/artifactory/labs-snapshot-local</url>
+				</snapshotRepository>
+			</distributionManagement>
+		</profile>
+	</profiles>
+
+</project>
